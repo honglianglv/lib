@@ -1,0 +1,12 @@
+#!/bin/bash
+
+rm -f /home/users/lvhongliang/cscope.*
+
+echo "find files ..."
+>/home/users/lvhongliang/cscope.files
+find /home/users/lvhongliang/dev/ps/ -name "*.c" -or -name "*.h" -or -name "*.cpp" -or -name "*.sh" -or -name "*.conf" >> /home/users/lvhongliang/cscope.files
+find /home/users/lvhongliang/dev/lib2/ -name "*.c" -or -name "*.h" -or -name "*.cpp" -or -name "*.sh" -or -name "*.conf" >> /home/users/lvhongliang/cscope.files
+#find /home/users/lvhongliang/code/lib2-64/ -name "*.c" -or -name "*.h" -or -name "*.cpp" -or -name "*.sh" -or -name "*.conf" >> /home/users/lvhongliang/cscope.files
+
+echo "build cscope ..."
+cscope -Rbq
